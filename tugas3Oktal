@@ -1,0 +1,29 @@
+def oktal_ke_desimal (oktal_str):
+    return int(oktal_str, 8)
+
+def oktal_ke_biner(oktal_str):
+    desimal = int(oktal_str, 8)
+    return bin(desimal)[2: ]
+
+def oktal_ke_hexadesimal(oktal_str):
+    desimal = int(oktal_str, 8)
+    return hex(desimal)[2: ].upper()
+print("KONVERSI BILANGAN OKTAL")
+oktal_input = input("Masukkan bilangan oktal : ")
+
+try:
+    if not all(ch in '01234567' for ch in oktal_input):
+        raise ValueError("Input harus berupa bilangan oktal yaitu hanya 0 sampai 7")
+    
+    desimal_output = oktal_ke_desimal(oktal_input)
+    biner_output = oktal_ke_biner(oktal_input)
+    hexadesimal_output = oktal_ke_hexadesimal(oktal_input)
+
+    print(f"Hasil Konversi:")
+    print(f"Oktal : {oktal_input}")
+    print(f"Desimal : {desimal_output}")
+    print(f"Biner : {biner_output}")
+    print(f"Hexadesimal : {hexadesimal_output}")
+
+except ValueError as e:
+    print(f"Error: {e}")
